@@ -3,7 +3,7 @@ package csa;
 public class TraceExample {
     private int someNum;
     private boolean someBool;
-
+    private int go;
 
     public TraceExample() {
         someNum = -1;
