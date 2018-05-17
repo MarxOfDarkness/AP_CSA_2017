@@ -9,7 +9,6 @@ package csa.dice;
 import java.util.Random;
 public class Die
 {
-    private final int MIN_FACES = 4;
     
     private static Random generator = new Random();
     private int numFaces; //number of sides
@@ -22,11 +21,7 @@ public class Die
     //Explicitly sets the size of the die. Defaults to a size of six if the
     // parameter is invalid. Initial face value is 1.
     public Die (int faces){
-        if (faces < MIN_FACES)
-            numFaces = 6;
-        else
-            numFaces = faces;
-            
+        numFaces = faces;
         faceValue = 1;
     }
     
@@ -39,5 +34,9 @@ public class Die
     
     public int getFaceValue () {
         return faceValue;
+    }
+
+    public int getNumFaces() {
+        return numFaces;
     }
 }

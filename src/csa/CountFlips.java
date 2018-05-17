@@ -8,8 +8,6 @@ package csa;
  */
 public class CountFlips
 {
-    private final int HEADS = 0;
-    private final int TAILS = 1;
     //--------------------------------------------------------------------------------
     //Flips a coin multiple times and counts the number of heads and tails that result
     //--------------------------------------------------------------------------------
