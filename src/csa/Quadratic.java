@@ -8,21 +8,24 @@ package csa;
  */
 import java.lang.*;
 public class Quadratic{
-    public double a;
-    public double b;
-    public double c;
-    public Quadratic(double a, double b, double c){
+    private double a;
+    private double b;
+    private double c;
+    public static void main(String[] args){
+
+        Quadratic quad = new Quadratic(-2, 48, 252);
+        quad.calculate();
+    }
+
+    private Quadratic(double a, double b, double c){
         //System.out.println("Input a: ");
         this.a = a;
         this.b = b;
         this.c = c;
     }
-    public void calculate(){
+    private void calculate(){
         System.out.println(((0-b) + Math.sqrt((b*b) - 4 * a * c))/2*a);
         System.out.println(((0-b) - Math.sqrt((b*b) - 4 * a * c))/2*a);
     }
-    public static void main(String[] args){
-        Quadratic quad = new Quadratic(1, 4, 4);
-        quad.calculate();
-    }
+
 }

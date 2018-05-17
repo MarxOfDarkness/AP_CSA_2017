@@ -1,47 +1,28 @@
 package csa;
 
-/**
- * Write a description of class Car here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
-public class Car{
-   int year;
-   String make;
-   int speed;
-   public Car(){
-       this(2000, "Honda", 85);
-   }
-   public Car(int year, String make, int speed){
-       this.year = year;
-       this.make = make;
-       this.speed = speed;
-   }
-   public int getYear(){
-       return this.year;
-   }
-   public String getMake(){
-       return this.make;
-   }
-   public int getSpeed(){
-       return this.speed;
-   }
-   public void setYear(int year){
-       this.year = year;
-   }
-   public void setMake(String make){
-       this.make = make;
-   }
-   public void setSpeed(int speed){
-       this.speed = speed;
-   }
-   public void upSpeed(int increase){
-       this.speed += increase;
-   }
-   public void downSpeed(int decrease){
-       if (this.speed > 0){
-           this.speed -= 0;
-       }
-   }
+public class Car extends Vehicle {
+    private String myCarType;
+    private int myNumPassengers;
+    private int myNumDoors;
+
+    public Car(String myBrand, int myPrice, double myGasMileage, double myGasPrice, int myYearlyMiles, String myCarType, int myNumPassengers, int myNumDoors) {
+        super(myBrand, myPrice, myGasMileage, myGasPrice, myYearlyMiles);
+        this.myCarType = myCarType;
+        this.myNumPassengers = myNumPassengers;
+        this.myNumDoors = myNumDoors;
+    }
+
+    public String getCarType(){
+        return myCarType;
+    }
+    public int getNumPassengers(){
+        return myNumPassengers;
+    }
+    public int getNumDoors(){
+        return myNumDoors;
+    }
+
+    public String toString(){
+        return "Your $" + getPrice() + " " + getBrand() + " " + myCarType + " costs " + formatter.format("$%.2f", getYearlyMiles() / getGasMileage() * getGasPrice()) + " in gas each year!\nIt has " + myNumDoors + " doors and carries " + myNumDoors + " passengers.";
+    }
 }

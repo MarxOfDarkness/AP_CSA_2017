@@ -26,7 +26,6 @@ public class TraceExample {
         return someNum;
     }
 
-
     public void mehtodTwo(boolean isTrue, int num){
         if(isTrue)
             someBool = !someBool;

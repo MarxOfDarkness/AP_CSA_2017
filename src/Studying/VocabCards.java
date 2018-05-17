@@ -1,4 +1,4 @@
-package LA;
+package Studying;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -20,6 +20,7 @@ public class VocabCards {
         LIST_CARDS.add(new FlashCards("ignominious", "Marked by shame or disgrace: "));
         LIST_CARDS.add(new FlashCards("impromptu", "Spoken, preformed, done, or composed with little or no preparation: "));
         LIST_CARDS.add(new FlashCards("vivacious", "Full of motion and spirit: "));
+        LIST_CARDS.add(new FlashCards("no", "answer is no"));
     }
     public static List<FlashCards> shuffleList(List<FlashCards> cardsIn){
         List<FlashCards> copy = new ArrayList<>(cardsIn);
@@ -33,18 +34,19 @@ public class VocabCards {
     public static int runOneQuiz(BufferedReader in) throws Exception{
         int count = 0;
         List<FlashCards> shuffledList = shuffleList(LIST_CARDS);
-        int i = 0;
         for(FlashCards card : shuffledList){
-            System.out.println(card.getDefinition());
+            System.out.println(card.getPrompt());
             String read = in.readLine();
-            if (read.equalsIgnoreCase(card.getWord())){
+            if (read.equalsIgnoreCase(card.getAnswer())){
                 System.out.println("Correct");
+                System.out.println();
                 count++;
             }
             else {
                 System.out.println("Incorrect");
+                System.out.println(card.getAnswer());
+                System.out.println();
             }
-            i++;
         }
         System.out.println();
         System.out.println(count + "/" + 10);
@@ -53,17 +55,22 @@ public class VocabCards {
     public static void main(String[] args)throws Exception{
         BufferedReader in = new BufferedReader(
                 new InputStreamReader(System.in));
-        runOneQuiz(in);
         int count = runOneQuiz(in);
+        int i = 0;
         while(true){
-            if(count < 6){
-                runOneQuiz(in);
+            while(i < 1){
+                if(count < 6){
+                    count = runOneQuiz(in);
+                }
+                else
+                    i++;
             }
             System.out.println("Want to go again? Y/N : ");
             String newGame = in.readLine();
             if(newGame.equals("Y")){
                 System.out.println();
                 System.out.println("Here we go.");
+                i--;
                 runOneQuiz(in);
             }
             else if (newGame.equals("N")){
